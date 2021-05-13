@@ -26,4 +26,4 @@ Si devono simulare le connessioni UDP dei device verso il Gateway e la connessio
 Gateway verso il Server mostrando sulla Console del server la lista dei messaggi ricevuti nel
 formato indicato sopra. Inoltre indicare la dimensione dei buffer utilizzati su ciascun canale 
 trasmissivo, il tempo impiegato per trasmettere il pacchetto UDP ed il tempo impiegato per
-trasmettere il pacchetti UDP.*
+trasmettere il pacchetti TCP.*
