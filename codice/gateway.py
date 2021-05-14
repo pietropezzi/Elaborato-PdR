@@ -1,11 +1,17 @@
 import socket
 
-deviceInterface = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-deviceInterface.bind(("", 8200))
+server = ("localhost",8000)
 
-serverInterface = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-serverInterface.bind(("", 8100))
+deviceInterface = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+deviceInterface.bind(("localhost", 8200))
+
+def sendMeasurements(mes):
+    serverInterface = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    serverInterface.connect(server)
+    serverInterface.send(mes)
+    serverInterface.close()
+    
 while True:
-	print("listening...")
-	message = deviceInterface.recv(1024)
-	print(message.decode("UTF-8"))
+    message = deviceInterface.recv(1024)
+    print("received message from someone")
+    sendMeasurements(message)

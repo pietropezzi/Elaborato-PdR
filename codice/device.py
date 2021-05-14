@@ -4,7 +4,8 @@ import random
 import socket
 
 device_ip = "192.168.1.1"
-router = ("localhost", 8200)
+gateway = ("localhost", 8200)
+
 def measure():
     # Time
     time = dt.now()
@@ -18,7 +19,7 @@ def measure():
 
 def sendMeasure(measurement):
     deviceSocket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    deviceSocket.connect(router)
+    deviceSocket.connect(gateway)
     deviceSocket.send(measurement.encode("UTF-8"))
     deviceSocket.close()
     print("Measurement sent to gateaway...")
