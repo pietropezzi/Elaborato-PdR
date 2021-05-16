@@ -3,7 +3,7 @@ import time
 import random
 import socket
 
-device_ip = "192.168.1.1"
+device_ip = "192.168.1.2"
 gateway = ("localhost", 8200)  
 
 deviceSocket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM) 
