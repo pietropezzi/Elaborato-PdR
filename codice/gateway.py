@@ -16,7 +16,7 @@ def main():
     receivedAmount=0
     total = ""
     while True:
-        message = deviceInterface.recv(1024)
+        message = deviceInterface.recv(4096)
         receivedAmount += 1
         total = total + message.decode("utf-8") +"\n"
         print("receivede measurement (%d/%d)" % (receivedAmount,deviceAmount))
