@@ -1,6 +1,6 @@
 import socket
 
-deviceAmount = 3
+deviceAmount = 4
 server = ("localhost",8000)
 
 deviceInterface = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -10,6 +10,7 @@ def sendMeasurements(mes):
     serverInterface = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     serverInterface.connect(server)
     serverInterface.send(mes.encode("utf-8"))
+    print("Sent measurement to server!")
     serverInterface.close()
     
 def main():
