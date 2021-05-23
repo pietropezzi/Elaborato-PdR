@@ -11,7 +11,9 @@ deviceInterface.bind(gateway)
 serverInterface = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 try:
+    print("Connessione con server...")
     serverInterface.connect(server)
+    print("Connessione con server stabilita.")
 except Exception as e:
     print("Errore durante connessione con server.")
     print("Err: "+e)
@@ -27,8 +29,9 @@ def sendMeasurements(mes):
         print("Err: "+e)
         input()
         sys.exit(1)
-
+        
 def main():
+    devReceived = []
     receivedAmount=0
     total = ""
     while True:
@@ -38,13 +41,20 @@ def main():
             print("Errore ricezione messaggio da un device.")
             print("Err: "+e)
             sys.exit(1)
-        receivedAmount += 1
-        total = total + message.decode("utf-8")
-        print("receivede measurement (%d/%d)" % (receivedAmount,deviceAmount))
-        if receivedAmount == deviceAmount:
-            sendMeasurements(total)
-            receivedAmount = 0
-            total = ""
+        decmess = message.decode("utf-8")
+        devip = decmess[0:11]
+        if devip in list(devReceived):
+            print("lettura device "+devip+" già ottenuta, messaggio scartato.")
+        else:
+            devReceived.append(devip)
+            receivedAmount += 1
+            total = total + decmess
+            print("receivede measurement (%d/%d)" % (receivedAmount,deviceAmount))
+            if receivedAmount == deviceAmount:
+                sendMeasurements(total)
+                receivedAmount = 0
+                devReceived = []
+                total = ""
 
 if __name__ == "__main__":
     main()

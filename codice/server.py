@@ -6,11 +6,14 @@ server = ("localhost", 8000)
 try:
     gatewayInterface = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     gatewayInterface.bind(server)
+    
+    print("Server in attesa del gateway...")
     gatewayInterface.listen(1)
     connSocket, addr = gatewayInterface.accept() 
+    print("Connessione con gateway stabilita.\n")
 except Exception as e:
     print("Errore durante configurazione socket server.")
-    print("Err: "+e)
+    print("Err: ",e)
     sys.exit(1)
     
 def main():	
