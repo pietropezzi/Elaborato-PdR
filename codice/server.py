@@ -1,16 +1,26 @@
 import socket
+import sys
 
 server = ("localhost", 8000) 
 
-gatewayInterface = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-gatewayInterface.bind(server)
-gatewayInterface.listen(1)
-
-connSocket, addr = gatewayInterface.accept() 
-
+try:
+    gatewayInterface = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    gatewayInterface.bind(server)
+    gatewayInterface.listen(1)
+    connSocket, addr = gatewayInterface.accept() 
+except Exception as e:
+    print("Errore durante configurazione socket server.")
+    print("Err: "+e)
+    sys.exit(1)
+    
 def main():	
     while True:
-        message = connSocket.recv(4096)
+        try:
+            message = connSocket.recv(4096)
+        except Exception as e:
+            print("Errore ricezione messaggio dal gateway.")
+            print("Err: "+e)
+            sys.exit(1)
         print(message.decode("utf-8"))
 
 if __name__ == "__main__":

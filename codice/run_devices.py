@@ -1,6 +1,7 @@
 import device
 import time
 from threading import Thread
+import sys
 
 # Intervalli di tempo tra l'attivazione di ogni device (in secondi)
 timeInt = 0.5
@@ -13,9 +14,8 @@ deviceAmount = 4
 
 def checkvalues():
     if readAmount * 34 > 1024 or readAmount * 34 * deviceAmount > 4096:
-        print("I valori inseriti non sono validi. premi ENTER per uscire.")
-        input()
-        exit()
+        print("I valori inseriti non sono validi")
+        sys.exit(1)
         
 def rundevices():
     td1 = Thread(target=device.create, args=("192.168.0.1", "D01", readAmount, readBreak))
