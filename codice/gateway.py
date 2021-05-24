@@ -2,7 +2,7 @@ import socket
 import sys
 
 deviceAmount = 4
-gateway = ("localhost", 8200)
+gateway = ("localhost", 10000)
 server = ("localhost",8000)
 
 # creazione socket UDP per i device.

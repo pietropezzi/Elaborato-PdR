@@ -7,7 +7,7 @@ import sys
 
 # socket e gateway sono gli stessi per ogni device
 socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM) 
-gateway = ("localhost", 8200)
+gateway = ("localhost", 10000)
    
 class Device:
     # inizializzazione di un object Device.
