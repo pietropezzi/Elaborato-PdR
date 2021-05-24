@@ -3,6 +3,7 @@ import time
 import random
 import socket
 import os 
+import sys
 
 # socket e gateway sono gli stessi per ogni device
 socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM) 

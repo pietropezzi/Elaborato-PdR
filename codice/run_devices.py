@@ -19,18 +19,25 @@ def checkvalues():
         sys.exit(1)
         
 def rundevices():
-    td1 = Thread(target=device.create, args=("192.168.0.1", "D01", readAmount, readBreak))
+    td1 = Thread(target=device.create, args=("192.168.0.1", "D01", readAmount, readBreak),
+                 daemon = True)
     td1.start()
     time.sleep(timeInt)
-    td2 = Thread(target=device.create, args=("192.168.0.2", "D02", readAmount, readBreak))
+    td2 = Thread(target=device.create, args=("192.168.0.2", "D02", readAmount, readBreak),
+                 daemon = True)
     td2.start()
     time.sleep(timeInt)
-    td3 = Thread(target=device.create, args=("192.168.0.3", "D03", readAmount, readBreak))
+    td3 = Thread(target=device.create, args=("192.168.0.3", "D03", readAmount, readBreak),
+                 daemon = True)
     td3.start()
     time.sleep(timeInt)
-    td4 = Thread(target=device.create, args=("192.168.0.4", "D04", readAmount, readBreak))
+    td4 = Thread(target=device.create, args=("192.168.0.4", "D04", readAmount, readBreak),
+                 daemon = True)
     td4.start()
-
+    print("Premere ENTER per chiudere run_devices e terminare tutti i thread")
+    input()
+    sys.exit(0)
+    
 if __name__ == "__main__":
     checkvalues()
     rundevices()
