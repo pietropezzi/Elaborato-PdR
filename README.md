@@ -1,5 +1,8 @@
 # Elaborato Programmazione di Reti
-Elaborato per il corso di Programmazione di reti.
+Questo repository contiene la mia soluzione alla **Traccia 1** dell'Elaborato di Programmazione di Reti.
+Per una breve guida su come eseguire il codice, leggere il punto **2.Istruzioni esecuzione** della
+[relazione del progetto](https://github.com/pietropezzi/Elaborato-PdR/blob/main/Relazione.pdf).
+
 # Traccia
 Si immagini di avere uno scenario di Smart Meter IoT che rilevando la temperatura e umidità del
 terreno in cui sono posizionati.
@@ -26,4 +29,4 @@ Si devono simulare le connessioni UDP dei device verso il Gateway e la connessio
 Gateway verso il Server mostrando sulla Console del server la lista dei messaggi ricevuti nel
 formato indicato sopra. Inoltre indicare la dimensione dei buffer utilizzati su ciascun canale 
 trasmissivo, il tempo impiegato per trasmettere il pacchetto UDP ed il tempo impiegato per
-trasmettere il pacchetti TCP.*
+trasmettere il pacchetto TCP.*
