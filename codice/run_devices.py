@@ -10,6 +10,7 @@ readAmount = 4
 # Intervallo di tempo tra ogni lettura (in secondi)
 readBreak = 5
 # Numero di device che verranno attivati.
+# Per ogni device deve essere generato un thread.
 deviceAmount = 4
 
 def checkvalues():

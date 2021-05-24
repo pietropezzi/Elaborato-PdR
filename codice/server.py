@@ -7,6 +7,7 @@ try:
     gatewayInterface = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     gatewayInterface.bind(server)
     
+    # server si mette in ascolto per il gateway
     print("Server in attesa del gateway...")
     gatewayInterface.listen(1)
     connSocket, addr = gatewayInterface.accept() 
@@ -16,6 +17,7 @@ except Exception as e:
     print("Err: ",e)
     sys.exit(1)
     
+# main si occupa solo di stampare un messaggio ottenuto dal gateway.
 def main():	
     while True:
         try:
