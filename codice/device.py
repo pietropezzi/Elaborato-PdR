@@ -57,7 +57,7 @@ class Device:
             r += 1
             if r == self.readAmount:
                 self.sendMeasure(readingtxt)
-                print("["+self.device_ID+"] Sent reading to gateway.")
+                print("["+self.device_ID+"] letture inviate al gateway.")
                 r = 0
                 self.wipeReadings(readingtxt)
             time.sleep(self.readBreak)

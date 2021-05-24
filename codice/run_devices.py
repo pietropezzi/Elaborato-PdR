@@ -6,10 +6,11 @@ import sys
 # Intervalli di tempo tra l'attivazione di ogni device (in secondi)
 timeInt = 0.5
 # Numero di letture da effettuare prima di comunicarle al gateway.
-readAmount = 4
+readAmount = 3
 # Intervallo di tempo tra ogni lettura (in secondi)
-readBreak = 5
+readBreak = 2
 # Numero di device che verranno attivati.
+# Assicurarsi che deviceAmount corrisponda al deviceAmount di gateway!
 # Per ogni device deve essere generato un thread.
 deviceAmount = 4
 
@@ -19,6 +20,10 @@ def checkvalues():
         sys.exit(1)
         
 def rundevices():
+    # devono essere generati deviceAmount thread, per ogni device inserire
+    # <nome_thread_device> = Thread(target=device.create, args=(IP, ID, readAmount, readBreak),daemon = True)
+    # <nome_thread_device>.start()
+    # time.sleep(timeInt)
     td1 = Thread(target=device.create, args=("192.168.0.1", "D01", readAmount, readBreak),
                  daemon = True)
     td1.start()
