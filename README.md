@@ -1,7 +1,7 @@
 # Elaborato Programmazione di Reti
 Questo repository contiene la mia soluzione alla **Traccia 1** dell'Elaborato di Programmazione di Reti.
 Per una breve guida su come eseguire il codice, leggere il punto **2.Istruzioni esecuzione** della
-[relazione del progetto](https://github.com/pietropezzi/Elaborato-PdR/blob/main/Relazione.pdf).
+[Relazione](https://github.com/pietropezzi/Elaborato-PdR/blob/main/Relazione.pdf).
 
 # Traccia
 Si immagini di avere uno scenario di Smart Meter IoT che rilevando la temperatura e umidità del
